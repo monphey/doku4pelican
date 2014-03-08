@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}彙整 - {{ SITENAME }}{%endblock%}
+{% block post %}
+	<!-- toc start -->
+	<div id="toc">
+		<h3>目錄</h3>
+			<div>
+				<ul>
+					{% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
+						<li id="lv1"><a href="#{{year}}">{{year}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+	</div>
+	<!-- toc end -->
+	<!-- archives start -->
+	<div id="act">
+		<h1>彙整</h1>
+		{% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}  
+			<h2 id= "{{ year }}">{{ year }}年</h2>
+			<ul>
+				{% for article in date_year %}
+					<hr />
+					<li><span>{{ article.locale_date }}</span><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+				{% endfor %}
+			</ul>
+		{% endfor %}
+	</div>
+	<!-- archives end -->
+{% endblock post%}

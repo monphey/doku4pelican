@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+	<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+	<link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/favicon.png">
+	<link rel="stylesheet" type="text/css" href="{{ SITEURL}}/theme/css/main.css">
+	{% endblock head %}
+</head>
+<body>
+	<!-- navbar stert -->
+	<div id="navbar">
+		<ul>
+			{% for cat, null in categories %}
+			<li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+			{% endfor %}
+			<li><a href="{{ SITEURL }}/about.html">關於</a></li>
+		</ul>
+	</div>
+	<!-- navbar end -->
+	<!-- content start -->
+	<div id="content">
+		<!-- header start -->
+		<div id="header">
+			<h1><a href="{{ SITEURL }}">{{SITENAME}}</a></h1>
+			<h2>不積跬步，無以至千里；不積小流，無以成江海</h2>
+		</div>
+		<hr />
+		<!-- header end -->
+		<!-- widget start -->
+		<div id="widget">
+			<ul>
+				<li><a href="{{ SITEURL }}/">首頁</a></li>
+				<li><a href="{{ SITEURL }}/archives.html">彙整</a></li>
+				<li><a href="{{ SITEURL }}/categories.html">分類</a></li>				
+				<li><a href="{{ SITEURL }}/tags.html">標籤</a></li>
+				<li><a href="{{ SITEURL}}/feeds/all.atom.xml">訂閱</a></li>
+			</ul>
+			{% if LINKS %}
+			<ul>
+				{% for name, url in LINKS %}
+				<li><a href="{{ url }}">{{ name }}</a></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			{% if SOCIAL %}
+			<ul>
+				{% for name, url in SOCIAL %}
+				<li><a href="{{ url }}">{{ name }}</a></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+		<!-- widget end -->
+		<!-- page_content start -->
+		<div id="page_content">
+			<div id="doc_content">
+			{% block post %}
+			{% endblock post%}
+			</div>
+		{% block doc_info %}
+		{% endblock doc_info %}
+		</div>
+		<!-- page_content end-->
+		<!--fotter start-->
+		<div id="fotter">
+		本網誌託由<a href="https://github.com/getpelican/pelican">Pelican</a>強力驅動,<a href="http://www.gitcafe.com/doku4pelican">主題</a>由<a href="http://www.monphey.com">木菲</a>製作。
+		<!--fotter end>
+	</div>
+</body>
+</html>

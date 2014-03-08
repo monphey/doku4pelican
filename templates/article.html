@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} - {{SITENAME}}{% endblock title %}
+{% block post %}
+	<!-- post start -->
+	<h1><a href="{{ SITEURL }}/{{ article.url }}"></a>{{ article.title }}</h1>
+	<div id="post_content">	
+		{{ article.content }}
+		<h2>評論</h2>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = '{{ DISQUS_SITENAME }}';
+			(function() {
+        	    	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        	    	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        	    	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+	<!-- post end -->
+{% endblock post %}
+{% block doc_info %}
+	<!-- toc_info start -->
+	<div id="doc_info">
+	<p>{{ article.locale_date }}發佈於<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>，由<a href="{{ SITENAME }}/{{ article.author.url }}">{{ article.author }}</a></p>
+	</div>
+	<!-- doc_info end -->
+{% endblock doc_info %}

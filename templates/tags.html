@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}標籤 - {{SITENAME}}{% endblock title %}
+{% block post %}
+	<!-- toc start -->
+	<div id="toc">
+		<h3>目錄</h3>
+			<div>
+				<ul>
+					{% for tag, articles in tags %}
+						<li id="lv1"><a href="#{{ tag }}">{{ tag }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+	</div>
+	<!-- toc end -->
+
+	<div id="act"">
+		<h1>標籤</h1>
+		{% for tag, articles in tags %}
+			<h2><a id="{{ tag }}" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></h2>
+			<ul>
+				{% for article in articles %}
+					<hr />
+					<li><span>{{ article.locale_date }}</span><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</li>
+				{% endfor %}
+			</ul>
+		{% endfor %}
+	</div>
+
+{% endblock post %}
