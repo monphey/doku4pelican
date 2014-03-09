@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}分類 - {{SITENAME}}{% endblock title %}
+{% block title %}分類 - {{ SITENAME }}{% endblock title %}
 {% block post %}
 	<!-- toc start -->
 	<div id="toc">
@@ -13,7 +13,7 @@
 			</div>
 	</div>
 	<!-- toc end -->
-
+	<!-- act start -->
 	<div id="act">
 		<h1>分類</h1>
 		{% for category, articles in categories %}
@@ -21,11 +21,10 @@
 			<ul>
 				{% for article in articles %}
 					<hr />
-					<li><span>{{ article.locale_date }}</span><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+					<li>{{ article.locale_date }}<a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
 				{% endfor %}
 			</ul>
 		{% endfor %}
-
 	</div>
-
+	<!-- act end -->
 {% endblock post %}

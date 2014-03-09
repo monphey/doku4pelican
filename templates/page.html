@@ -1,6 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} - {{ SITENAME }}{%endblock%}
+{% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
 {% block post %}
-	<h1>{{ page.title }}</h1>
-	{% page.content %}
-{% endblock post%}
+	<h1><a href="{{ SITEURL }}/{{ page.url }}"></a>{{ page.title }}</h1>
+	<div id="post_content">
+		{{ page.content }}
+	</div>
+{% endblock post %}

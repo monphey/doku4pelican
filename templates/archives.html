@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}彙整 - {{ SITENAME }}{%endblock%}
+{% block title %}彙整 - {{ SITENAME }}{% endblock title %}
 {% block post %}
 	<!-- toc start -->
 	<div id="toc">
@@ -13,7 +13,7 @@
 			</div>
 	</div>
 	<!-- toc end -->
-	<!-- archives start -->
+	<!-- act start -->
 	<div id="act">
 		<h1>彙整</h1>
 		{% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}  
@@ -21,10 +21,10 @@
 			<ul>
 				{% for article in date_year %}
 					<hr />
-					<li><span>{{ article.locale_date }}</span><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+					<li>{{ article.locale_date }}<a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
 				{% endfor %}
 			</ul>
 		{% endfor %}
 	</div>
-	<!-- archives end -->
+	<!-- act end -->
 {% endblock post%}

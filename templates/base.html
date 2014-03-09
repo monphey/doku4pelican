@@ -1,20 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
 	{% block head %}
 	<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-	<link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/favicon.png">
+	<link rel="icon" type="image/png" href="{{ SITEURL }}/favicon.png">
 	<link rel="stylesheet" type="text/css" href="{{ SITEURL}}/theme/css/main.css">
+	{% if GOOGLE_ANALYTICS %}
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+		var ga = document.createElement('script'); 
+		ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+	{% endif %}
 	{% endblock head %}
 </head>
 <body>
 	<!-- navbar stert -->
 	<div id="navbar">
 		<ul>
-			{% for cat, null in categories %}
-			<li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+			{% for category, articles in categories %}
+				<li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
 			{% endfor %}
 			<li><a href="{{ SITEURL }}/about.html">關於</a></li>
 		</ul>
@@ -25,7 +38,7 @@
 		<!-- header start -->
 		<div id="header">
 			<h1><a href="{{ SITEURL }}">{{SITENAME}}</a></h1>
-			<h2>不積跬步，無以至千里；不積小流，無以成江海</h2>
+			<h2>{{ SUBTITLE }}</h2>
 		</div>
 		<hr />
 		<!-- header end -->
@@ -36,7 +49,9 @@
 				<li><a href="{{ SITEURL }}/archives.html">彙整</a></li>
 				<li><a href="{{ SITEURL }}/categories.html">分類</a></li>				
 				<li><a href="{{ SITEURL }}/tags.html">標籤</a></li>
-				<li><a href="{{ SITEURL}}/feeds/all.atom.xml">訂閱</a></li>
+				{% if FEED_ALL_ATOM %}
+				<li><a href="{{ SITEURL}}/{{ FEED_ALL_ATOM }}">訂閱</a></li>
+				{% endif %}
 			</ul>
 			{% if LINKS %}
 			<ul>
@@ -58,7 +73,7 @@
 		<div id="page_content">
 			<div id="doc_content">
 			{% block post %}
-			{% endblock post%}
+			{% endblock post %}
 			</div>
 		{% block doc_info %}
 		{% endblock doc_info %}
@@ -66,8 +81,21 @@
 		<!-- page_content end-->
 		<!--fotter start-->
 		<div id="fotter">
-		本網誌託由<a href="https://github.com/getpelican/pelican">Pelican</a>強力驅動,<a href="http://www.gitcafe.com/doku4pelican">主題</a>由<a href="http://www.monphey.com">木菲</a>製作。
-		<!--fotter end>
+		本網誌
+		{% if HOSTING %}
+		{% for name, url in HOSTING%}
+		託管於<a href="{{ url }}">{{ name }}</a>，
+		{% endfor %}
+		{% endif %}
+		由<a href="https://github.com/getpelican/pelican">Pelican</a>強力驅動,<a href="http://www.gitcafe.com/monphey/doku4pelican">主題</a>由<a href="http://www.monphey.com">木菲</a>製作。
+		<br />
+		{% if COPYRIGHT %}
+		{% for name, url in COPYRIGHT %}
+		除另有註明，本站內容皆爲<a href="{{ SITEURL }}">{{ AUTHOR }}</a>原創，以<a href="{{ url }}">{{ name }}</a>釋出。
+		{% endfor %}
+		{% endif %}
+		</div>
+		<!-- fotter end -->
 	</div>
 </body>
 </html>
