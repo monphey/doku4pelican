@@ -12,27 +12,27 @@ h1, h2, h3, h4, h5, h6, a, p {
 	font-weight: normal;
 	line-height: 1.35em;
 }
-#doc_content h1 a {
+.doc_content h1 a {
 	color:#000;
 }
-#post_content h2 {
+.post_content h2 {
 	font-size: 28px;
 	border-bottom: 1px solid #cccccc;
 	color:#000;
 }
-#post_content h3 {
+.post_content h3 {
 	font-size: 24px;
 	color:#000;
 }
-#post_content h4 {
+.post_content h4 {
 	font-size: 20px;
 	color:#000;
 }
-#post_content h5 {
+.post_content h5 {
 	font-size: 18px;
 	color:#000;
 }
-#post_content h6 {
+.post_content h6 {
 	color: #777777;
 	font-size: 16px;
 }
@@ -44,7 +44,7 @@ hr {
 	border-bottom: solid #fff;
 	border-width: 1.5px 0;
 }
-#doc_content hr {
+.doc_content hr {
 	background:transparent url("https://github.global.ssl.fastly.net/assets/primer/markdown/dirty-shade-4dfc523819ae7ebcb13722aa4a21fe718c9ed37b.png") repeat-x 0 0;
 	border:0 none;
 	color:#CCC;
@@ -107,28 +107,28 @@ table tr th :first-child, table tr td :first-child {
 table tr th :last-child, table tr td :last-child {
 	margin-bottom: 0;
 }
-#navbar {
+.navbar {
 	background-color:#333;
 	box-shadow:0 0 8px rgba(0,0,0,0.5);
 	width:100%;
 	padding:5px 0 5px 0 ;
 }
-#content {
+.content {
 	margin:0 auto;
 	width:75%;
 	max-width:1200px;
 }
-#header {
+.header {
 	padding:2em 3em 0.5em;
 }
-#widget {
+.widget {
 	width: 10%;
 	float:left;
 }
-#page_content {
+.page_content {
 	margin-left: 15%;
 }
-#doc_content {
+.doc_content {
 	min-height: 190px;
 	background: #fff;
 	border: 1px solid #eee;
@@ -136,13 +136,13 @@ table tr th :last-child, table tr td :last-child {
 	padding: 1.556em 2em 2em;
 	margin: 1.5em 0 0.5em 0;
 }
-#doc_info {
+.doc_info {
 	font-size: .875em;
 	text-align: right;
 	color:#999;
 }
 
-#toc {
+.toc {
 	margin: -1.556em -2em .5em 1.4em;
 	width: 16em;
 	border-left: 1px solid #ccc;
@@ -150,90 +150,90 @@ table tr th :last-child, table tr td :last-child {
 	float: right;
 	font-size: .875em;
 }
-#fotter {
+.fotter {
 	margin: 1.5em 0 1em 0;
 	font-size: .875em;
 	text-align: center;
 	clear: both;
 }
-#navbar a{
+.navbar a{
 	color:#bbb;
 	margin-right:20px;
 }
-#navbar a:hover {
+.navbar a:hover {
 	color:#fff;
 	text-decoration: underline;
 }
-#header h1 a, #post_header h1 a {
+.header h1 a, .post_header h1 a {
 	color:#333;
 }
-#post_content p a, #post_content ul li a, #post_content ul a, #post_content li a, #widget a, #toc a, #fotter a, #act h2 a {
+.post_content p a, .post_content ul li a, .post_content ul a, .post_content li a, .widget a, .toc a, .fotter a, .act h2 a {
 	color:#2b73b7;
 }
-#readmore, #pagination ul li a, #act ul li a {
+.readmore, .pagination ul li a, .act ul li a {
 	color:#080;
 }
-#act ul li a {
+.act ul li a {
 	margin:15%;
 }
-#post_header p, #pagination #disabled a {
+.post_header p, .pagination .disabled a {
 	color:#999;
 	margin-top: -1em;
 }
-#doc_info a, #post_header a {
+.doc_info a, .post_header a {
 	color:#625B57;
 }
-#toc div {
+.toc div {
 	padding: .5em 1em 1em;
 
 }
-#header h1 {
+.header h1 {
 	font-size: 1.5em;
 	margin-bottom:-0.2em;
 }
 
-#header h2, #widget h2 {
+.header h2, .widget h2 {
 	font-size: 1em;
 }
 
-#widget ul {
+.widget ul {
 	padding-left: 60%;
 	margin-top: 20%;
 }
-#toc h3 {
+.toc h3 {
 	padding: .5em 1em;
 	margin-bottom: -1em;
 }
-#toc ul {
+.toc ul {
 	padding: 0 0 0 1.2em;
 }
 
-#widget ul, #toc ul {	
+.widget ul, .toc ul {	
 	list-style-type: square;
 }
-#pagination ul {
+.pagination ul {
 	color: #999;
 	float: right;
 	margin-top: -0.5em;
 }
 
-#act ul li {
+.act ul li {
 	margin:15%;
 	list-style:none;
 	display:inline;
 }
-#pagination li {
+.pagination li {
 	display: inline;
 }
-#navbar ul, #navbar li{
+.navbar ul, .navbar li{
 	list-style:none;
 	display:inline;
 	color:#bbb;
 	font-size:16px;
 }
-#post_fotter hr {
+.post_fotter hr {
 	margin:2em 0 2em 0;
 }
-#heimu {
+.heimu {
 	background-color:#000;
 }

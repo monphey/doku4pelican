@@ -3,12 +3,12 @@
 
 {% block post %}
 	<!-- toc start -->
-	<div id="toc">
+	<div class="toc">
 		<h3>目錄</h3>
 			<div>
 				<ul>
 					{% for article in articles_page.object_list %}
-					<li id="lv1"><a href="#{{ article.title }}">{{ article.title }}</a></li>
+					<li class="lv1"><a href="#{{ article.slug }}">{{ article.title }}</a></li>
 					{% endfor %}
 				</ul>
 			</div>
@@ -16,37 +16,37 @@
 	<!-- toc end -->
 	<!-- post start-->
 	{% for article in articles_page.object_list %} 
-		<div id="post_header">
-			<h1><a id="{{ article.title }}" href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}"> {{ article.title }} </a></h1>
+		<div class="post_header">
+			<h1><a id="{{ article.slug }}" href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}"> {{ article.title }} </a></h1>
 			<p><time>{{ article.locale_date }}</time>發佈於
 			<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></p>
 		</div>
 
-		<div id="post_content"> 
+		<div class="post_content"> 
 			{{ article.summary }}
 		</div>
 
-		<div id="post_fotter">
-			<a id="readmore" href="{{ SITEURL }}/{{ article.url }}">閱讀全文→</a>
+		<div class="post_fotter">
+			<a class="readmore" href="{{ SITEURL }}/{{ article.url }}">閱讀全文→</a>
 			<hr />
 		</div>
 	{% endfor %}
 	<!-- post end-->
 	<!-- pagination start -->
 	{% if articles_page and articles_paginator.num_pages > 1 %}
-		<div id="pagination">
+		<div class="pagination">
 			<ul>
 				{% if articles_page.has_previous() %}
 					{% set num = articles_page.previous_page_number() %}
-					<li id="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">上一頁</a></li>
+					<li class="prev"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">上一頁</a></li>
 				{% else %}
-					<li id="disabled"><a href="#">上一頁</a></li>
+					<li class="disabled"><a href="#">上一頁</a></li>
 				{% endif %}
 
 				{% if articles_page.has_next() %}
-					<li id="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">下一頁</a></li>
+					<li class="next"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">下一頁</a></li>
 				{% else %}
-					<li id="disabled"><a href="#">下一頁</a></li>
+					<li class="disabled"><a href="#">下一頁</a></li>
 				{% endif %}
 			</ul>
 		</div>

@@ -3,7 +3,7 @@
 <head>
 	{% block head %}
 	<meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{% block title %}{{ SITENAME }}{% endblock %}</title>
 	<link rel="icon" type="image/png" href="{{ SITEURL }}/favicon.png">
 	<link rel="stylesheet" type="text/css" href="{{ SITEURL}}/theme/css/main.css">
@@ -24,7 +24,7 @@
 </head>
 <body>
 	<!-- navbar stert -->
-	<div id="navbar">
+	<div class="navbar">
 		<ul>
 			{% for category, articles in categories %}
 				<li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
@@ -34,16 +34,16 @@
 	</div>
 	<!-- navbar end -->
 	<!-- content start -->
-	<div id="content">
+	<div class="content">
 		<!-- header start -->
-		<div id="header">
+		<div class="header">
 			<h1><a href="{{ SITEURL }}">{{SITENAME}}</a></h1>
 			<h2>{{ SUBTITLE }}</h2>
 		</div>
 		<hr />
 		<!-- header end -->
 		<!-- widget start -->
-		<div id="widget">
+		<div class="widget">
 			<ul>
 				<li><a href="{{ SITEURL }}/">首頁</a></li>
 				<li><a href="{{ SITEURL }}/archives.html">彙整</a></li>
@@ -70,8 +70,8 @@
 		</div>
 		<!-- widget end -->
 		<!-- page_content start -->
-		<div id="page_content">
-			<div id="doc_content">
+		<div class="page_content">
+			<div class="doc_content">
 			{% block post %}
 			{% endblock post %}
 			</div>
@@ -80,7 +80,7 @@
 		</div>
 		<!-- page_content end-->
 		<!--fotter start-->
-		<div id="fotter">
+		<div class="fotter">
 		本網誌
 		{% if HOSTING %}
 		{% for name, url in HOSTING%}

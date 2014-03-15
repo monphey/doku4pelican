@@ -2,19 +2,19 @@
 {% block title %}分類 - {{ SITENAME }}{% endblock title %}
 {% block post %}
 	<!-- toc start -->
-	<div id="toc">
+	<div class="toc">
 		<h3>目錄</h3>
 			<div>
 				<ul>
 					{% for category, articles in categories %}
-						<li id="lv1"><a href="#{{ category }}">{{ category }}</a></li>
+						<li class="lv1"><a href="#{{ category }}">{{ category }}</a></li>
 					{% endfor %}
 				</ul>
 			</div>
 	</div>
 	<!-- toc end -->
 	<!-- act start -->
-	<div id="act">
+	<div class="act">
 		<h1>分類</h1>
 		{% for category, articles in categories %}
 			<h2><a id="{{ category }}" href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></h2>

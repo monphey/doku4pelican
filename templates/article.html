@@ -3,11 +3,11 @@
 {% block post %}
 	<!-- post start -->
 	<h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
-	<div id="post_content">	
+	<div class="post_content">	
 		{{ article.content }}
 		<h2>評論</h2>
 		{% if DISQUS_SITENAME %}
-		<div id="disqus_thread"></div>
+		<div class="disqus_thread"></div>
 		<script type="text/javascript">
 			var disqus_shortname = '{{ DISQUS_SITENAME }}';
 			(function() {
@@ -23,7 +23,7 @@
 {% endblock post %}
 {% block doc_info %}
 	<!-- toc_info start -->
-	<div id="doc_info">
+	<div class="doc_info">
 	由<a href="{{ SITENAME }}/{{ article.author.url }}">{{ article.author }}</a>於{{ article.locale_date }}發表於<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>，{% if article.modified %}最後更改於{{ article.modified }}{% endif %}
 	<br />
 	標籤：{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} </a>{% endfor %}&nbsp
