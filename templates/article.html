@@ -26,7 +26,7 @@
 	<div class="doc_info">
 	由<a href="{{ SITENAME }}/{{ article.author.url }}">{{ article.author }}</a>於{{ article.locale_date }}發表於<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>，{% if article.modified %}最後更改於{{ article.modified }}{% endif %}
 	<br />
-	標籤：{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} </a>{% endfor %}&nbsp
+	標籤：{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }} </a>{% endfor %}&nbsp;
 	</div>
 	<!-- doc_info end -->
 {% endblock doc_info %}
